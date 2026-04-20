@@ -1,47 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kushagr Gupta — Information Engineering</title>
-  <meta name="description" content="Kushagr Gupta — B.Sc. Information Engineering student at HAW Hamburg. Seeking Werkstudent or internship roles in software development, AI/ML, ERP, and digitalization." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kushagr Gupta — Information Engineering & AI</title>
+  <meta name="description" content="Kushagr Gupta — B.Sc. Information Engineering, HAW Hamburg. Seeking Werkstudent or internship roles in AI/ML, software development, and digitalization."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
-    /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
 
-    /* ─── Design Tokens ─── */
     :root {
-      --bg:        #0b0b12;
-      --bg-2:      #12121c;
-      --bg-3:      #1a1a27;
-      --surface:   #1e1e2e;
-      --border:    rgba(255,255,255,0.08);
-      --text:      #e8e6e1;
-      --text-muted:#8a8799;
-      --accent:    #c9a96e;
-      --accent-dim:rgba(201,169,110,0.12);
-      --accent-glow:rgba(201,169,110,0.25);
-      --green:     #6dbf8a;
-      --radius:    12px;
-      --radius-lg: 20px;
-      --nav-h:     64px;
-      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    [data-theme="light"] {
-      --bg:        #f5f3ef;
-      --bg-2:      #ede9e2;
-      --bg-3:      #e4dfd6;
-      --surface:   #ffffff;
-      --border:    rgba(0,0,0,0.08);
-      --text:      #1a1a2e;
-      --text-muted:#6b6880;
-      --accent:    #8b6420;
-      --accent-dim:rgba(139,100,32,0.1);
-      --accent-glow:rgba(139,100,32,0.2);
+      --bg:          #f6f3ee;
+      --bg-2:        #ede8df;
+      --bg-3:        #e4ddd2;
+      --surface:     #ffffff;
+      --border:      rgba(0,0,0,0.08);
+      --border-cool: rgba(100,181,214,0.18);
+      --text:        #1a1510;
+      --text-muted:  #6b5f50;
+      --accent:      #8b6420;
+      --accent-dim:  rgba(139,100,32,0.09);
+      --accent-glow: rgba(139,100,32,0.18);
+      --cool:        #2980a8;
+      --cool-dim:    rgba(41,128,168,0.10);
+      --cool-glow:   rgba(41,128,168,0.18);
+      --green:       #2e8b57;
+      --radius:      12px;
+      --radius-lg:   18px;
+      --nav-h:       64px;
+      --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+      --t:           0.3s;
     }
 
     body {
@@ -51,258 +42,319 @@
       font-weight: 400;
       line-height: 1.65;
       overflow-x: hidden;
-      transition: background var(--transition), color var(--transition);
+      transition: background var(--t) var(--ease), color var(--t) var(--ease);
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 999;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ─── Typography ─── */
+    /* ── Typography ── */
     h1, h2, h3, .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.015em; }
-    h3 { font-size: 1.25rem; line-height: 1.3; }
+    h1 { font-size: clamp(2.6rem, 6.5vw, 5rem); line-height: 1.07; letter-spacing: -0.025em; }
+    h2 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); line-height: 1.12; letter-spacing: -0.02em; }
+    h3 { font-size: 1.2rem; line-height: 1.3; }
     p { color: var(--text-muted); }
     a { color: inherit; text-decoration: none; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
 
-    /* ─── Utilities ─── */
+    /* ── Layout ── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem); }
     .section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+    /* ── Utilities ── */
     .section-label {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .section-label::after { content: ''; flex: 1; max-width: 3rem; height: 1px; background: var(--accent); opacity: 0.5; }
+    .section-label::before { content: '//'; opacity: 0.5; }
+    .section-label::after { content: ''; flex: 1; max-width: 2.5rem; height: 1px; background: var(--accent); opacity: 0.4; }
     .tag {
-      display: inline-block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em;
-      padding: 0.25rem 0.7rem; border-radius: 100px;
+      display: inline-block; font-size: 0.69rem; font-weight: 500; letter-spacing: 0.04em;
+      padding: 0.22rem 0.65rem; border-radius: 100px;
       background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-glow);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tag.cool {
+      background: var(--cool-dim); color: var(--cool); border-color: var(--cool-glow);
     }
     .card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 1.75rem;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      border-radius: var(--radius-lg); padding: 1.6rem;
+      transition: border-color var(--t) var(--ease), transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
     }
-    .card:hover { border-color: var(--accent-glow); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+    .card:hover { border-color: var(--accent-glow); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.22); }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.5rem; border-radius: 100px; font-size: 0.875rem; font-weight: 500;
-      cursor: pointer; border: none; transition: all var(--transition); text-decoration: none;
+      padding: 0.7rem 1.4rem; border-radius: 100px; font-size: 0.85rem; font-weight: 500;
+      cursor: pointer; border: none; transition: all var(--t) var(--ease); text-decoration: none;
     }
-    .btn-primary { background: var(--accent); color: #0b0b12; }
+    .btn-primary { background: var(--accent); color: #ffffff; }
     .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px var(--accent-glow); }
     .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    .divider { height: 1px; background: var(--border); }
 
-    /* ─── Reveal Animation ─── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
 
-    /* ─── Noise Overlay ─── */
-    body::before {
-      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 999;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h);
+    /* ── NAV ── */
+    nav#navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: var(--nav-h);
       display: flex; align-items: center;
-      background: rgba(11,11,18,0.8); backdrop-filter: blur(12px);
+      background: rgba(246,243,238,0.88); backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
-      transition: border-color var(--transition), background var(--transition);
+      transition: border-color var(--t);
     }
-    [data-theme="light"] nav { background: rgba(245,243,239,0.85); }
-    nav.scrolled { border-bottom-color: var(--border); }
-    nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-    .nav-logo { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500; color: var(--text); }
+    nav#navbar.scrolled { border-bottom-color: var(--border); }
+    nav#navbar .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 500; }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
-    .nav-links a { font-size: 0.83rem; font-weight: 500; color: var(--text-muted); transition: color var(--transition); }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); transition: color var(--t); }
     .nav-links a:hover { color: var(--accent); }
     .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-    .theme-btn {
-      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+    .icon-btn {
+      width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border);
       background: var(--surface); cursor: pointer; display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted); transition: all var(--transition);
+      color: var(--text-muted); transition: all var(--t);
     }
-    .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition); }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--t); }
     .mobile-menu {
-      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 99;
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 199;
       background: var(--bg-2); border-bottom: 1px solid var(--border);
-      padding: 1.5rem; flex-direction: column; gap: 1rem;
+      padding: 1.5rem; flex-direction: column; gap: 0.75rem;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--text); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
-
     @media (max-width: 768px) {
       .nav-links, .nav-actions .btn { display: none; }
       .hamburger { display: flex; }
     }
 
-    /* ─── HERO ─── */
+    /* ── HERO ── */
     #hero {
-      min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end;
-      padding-top: var(--nav-h); position: relative; overflow: hidden;
+      min-height: 100svh; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding-top: var(--nav-h);
     }
-    .hero-bg {
+    #hero-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+    }
+    .hero-gradient {
       position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,169,110,0.07) 0%, transparent 60%),
-                  radial-gradient(ellipse 50% 50% at 10% 80%, rgba(109,191,138,0.05) 0%, transparent 50%);
+      background:
+        radial-gradient(ellipse 70% 55% at 55% 40%, rgba(201,169,110,0.055) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 50% at 5% 75%, rgba(100,181,214,0.04) 0%, transparent 55%);
     }
-    .hero-grid {
-      position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
-      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 48px 48px;
-    }
-    .hero-inner { position: relative; padding-bottom: clamp(3rem, 8vh, 6rem); }
-    .hero-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.75rem; }
-    .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.4)} }
-    .hero-eyebrow span { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); }
+    .hero-inner { position: relative; z-index: 2; padding-bottom: clamp(3rem, 8vh, 6rem); }
+    .hero-status { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.75rem; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2.2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.55;transform:scale(1.5)} }
+    .status-text { font-size: 0.77rem; font-weight: 500; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
     .hero-title { margin-bottom: 1.5rem; }
     .hero-title em { font-style: italic; color: var(--accent); }
-    .hero-sub { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.7; }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3.5rem; }
-    .scroll-hint {
-      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    .hero-title .cool-word { color: var(--cool); font-style: italic; }
+    .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: var(--text-muted); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .hero-chip {
+      font-size: 0.72rem; font-weight: 500; font-family: 'JetBrains Mono', monospace;
+      padding: 0.28rem 0.7rem; border-radius: 100px;
+      background: var(--bg-3); border: 1px solid var(--border); color: var(--text-muted);
+    }
+    .hero-chip.lit { border-color: var(--cool-glow); color: var(--cool); background: var(--cool-dim); }
+    .scroll-cue {
+      position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-      font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 0.67rem; font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; z-index: 2;
     }
-    .scroll-arrow { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--text-muted), transparent); animation: scrollAnim 1.8s ease-in-out infinite; }
-    @keyframes scrollAnim { 0%,100%{opacity:0;transform:translateY(-8px)} 50%{opacity:1;transform:translateY(0)} }
+    .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, var(--text-muted), transparent); animation: scrollAnim 1.9s ease-in-out infinite; }
+    @keyframes scrollAnim { 0%,100%{opacity:0;transform:translateY(-8px)}50%{opacity:1;transform:translateY(0)} }
 
-    /* ─── EXPERIENCE ─── */
-    .timeline { display: flex; flex-direction: column; gap: 0; }
-    .timeline-item { display: grid; grid-template-columns: auto 1fr; gap: 0 1.5rem; }
-    .timeline-line { display: flex; flex-direction: column; align-items: center; }
-    .timeline-dot {
-      width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg);
-      box-shadow: 0 0 0 3px var(--accent-dim); flex-shrink: 0; margin-top: 0.35rem;
-    }
-    .timeline-connector { flex: 1; width: 1px; background: var(--border); margin: 0.4rem 0; }
-    .timeline-item:last-child .timeline-connector { display: none; }
-    .timeline-content { padding-bottom: 2.5rem; }
-    .tl-header { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.4rem; }
-    .tl-role { font-size: 1.05rem; font-weight: 600; color: var(--text); }
-    .tl-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.9rem; }
-    .tl-company { font-size: 0.83rem; font-weight: 500; color: var(--accent); }
-    .tl-period { font-size: 0.75rem; color: var(--text-muted); }
+    /* ── EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item { display: grid; grid-template-columns: auto 1fr; gap: 0 1.5rem; }
+    .tl-line { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); box-shadow: 0 0 0 3px var(--accent-dim); flex-shrink: 0; margin-top: 0.4rem; }
+    .tl-connector { flex: 1; width: 1px; background: var(--border); margin: 0.4rem 0; min-height: 1.5rem; }
+    .tl-item:last-child .tl-connector { display: none; }
+    .tl-body { padding-bottom: 2.5rem; }
+    .tl-role { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .tl-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.85rem; }
+    .tl-company { font-size: 0.82rem; font-weight: 500; color: var(--accent); }
+    .tl-period { font-size: 0.72rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
     .tl-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-    .tl-list li { font-size: 0.875rem; color: var(--text-muted); padding-left: 1.1rem; position: relative; }
-    .tl-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.05rem; }
+    .tl-list li { font-size: 0.865rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+    .tl-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.72rem; top: 0.1rem; }
 
-    /* ─── EDUCATION ─── */
-    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
-    @media (max-width: 640px) { .edu-grid { grid-template-columns: 1fr; } }
+    /* ── EDUCATION ── */
+    .edu-main {
+      background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem; margin-bottom: 1.75rem;
+    }
+    .edu-degree { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .edu-uni { color: var(--accent); font-size: 0.84rem; font-weight: 500; margin-bottom: 0.4rem; }
+    .edu-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
     .edu-card summary {
       cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
-      font-weight: 500; font-size: 0.9rem; gap: 0.5rem;
+      font-weight: 500; font-size: 0.88rem; gap: 0.5rem;
     }
     .edu-card summary::-webkit-details-marker { display: none; }
-    .edu-card summary .chevron {
+    .chevron {
       width: 20px; height: 20px; border-radius: 50%; background: var(--accent-dim);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      transition: transform var(--transition); color: var(--accent); font-size: 0.7rem;
+      transition: transform var(--t); color: var(--accent); font-size: 0.68rem;
     }
-    .edu-card details[open] summary .chevron { transform: rotate(180deg); }
-    .edu-detail { margin-top: 0.9rem; font-size: 0.83rem; color: var(--text-muted); line-height: 1.7; }
-    .edu-main { background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem 2rem; margin-bottom: 1.75rem; }
-    .edu-degree { font-size: 1.5rem; margin-bottom: 0.25rem; }
-    .edu-uni { color: var(--accent); font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem; }
-    .edu-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .edu-detail { margin-top: 0.85rem; font-size: 0.83rem; color: var(--text-muted); line-height: 1.72; }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
 
-    /* ─── PROJECTS ─── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.1rem; }
     .proj-card { position: relative; overflow: hidden; }
-    .proj-card::before {
+    .proj-card::after {
       content: ''; position: absolute; inset: 0; border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 60%); opacity: 0; transition: opacity var(--transition);
+      background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 55%);
+      opacity: 0; transition: opacity var(--t); pointer-events: none;
     }
-    .proj-card:hover::before { opacity: 1; }
-    .proj-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .proj-card:hover::after { opacity: 1; }
+    .proj-num { font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); margin-bottom: 1rem; letter-spacing: 0.1em; }
     .proj-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
-    .proj-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.1rem; }
+    .proj-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
-    .proj-link {
-      font-size: 0.78rem; font-weight: 500; color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem;
-      transition: gap var(--transition);
-    }
-    .proj-link:hover { gap: 0.6rem; }
-    .proj-placeholder { opacity: 0.45; }
-    .proj-placeholder .proj-icon { filter: grayscale(1); }
+    .proj-link { font-size: 0.77rem; font-weight: 500; color: var(--accent); display: inline-flex; align-items: center; gap: 0.3rem; transition: gap var(--t); }
+    .proj-link:hover { gap: 0.55rem; }
+    .placeholder-card { opacity: 0.5; }
 
-    /* ─── SKILLS ─── */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
-    .skill-group-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.1rem; }
+    .skill-group-label { font-size: 0.69rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; font-family: 'JetBrains Mono', monospace; }
     .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .skill-pill {
-      font-size: 0.8rem; font-weight: 500; padding: 0.35rem 0.85rem; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px;
       background: var(--bg-3); border: 1px solid var(--border); color: var(--text);
-      transition: all var(--transition);
+      transition: all var(--t);
     }
     .skill-pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+    .skill-pill.ai-pill:hover { border-color: var(--cool); color: var(--cool); background: var(--cool-dim); }
+    .ai-badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.65rem; font-family: 'JetBrains Mono', monospace;
+      padding: 0.15rem 0.5rem; border-radius: 100px;
+      background: var(--cool-dim); color: var(--cool); border: 1px solid var(--cool-glow);
+      margin-left: 0.4rem; vertical-align: middle; letter-spacing: 0.06em;
+    }
 
-    /* ─── ABOUT ─── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: center; }
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; }
     @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-avatar {
-      aspect-ratio: 1; border-radius: var(--radius-lg); background: var(--bg-3);
-      border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
-      overflow: hidden; position: relative;
+    .photo-frame {
+      aspect-ratio: 3/4; border-radius: var(--radius-lg);
+      border: 1px solid var(--border); overflow: hidden; position: relative;
+      background: var(--bg-3);
     }
-    .avatar-placeholder {
-      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--bg-3) 0%, var(--surface) 100%);
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--bg-3) 0px, var(--bg-3) 6px,
+        var(--surface) 6px, var(--surface) 12px
+      );
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+      position: relative;
     }
-    .about-interests { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+    .photo-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,169,110,0.08) 0%, transparent 70%);
+    }
+    .photo-initials {
+      font-family: 'Instrument Serif', serif; font-size: 4rem; color: var(--accent); opacity: 0.7; z-index: 1;
+    }
+    .photo-label {
+      font-size: 0.65rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);
+      letter-spacing: 0.12em; text-transform: uppercase; z-index: 1; text-align: center; line-height: 1.6;
+    }
+    .interest-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
     .interest-chip {
-      display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500;
-      padding: 0.4rem 0.9rem; border-radius: 100px; background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);
+      font-size: 0.79rem; font-weight: 500; padding: 0.38rem 0.85rem; border-radius: 100px;
+      background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);
     }
 
-    /* ─── CONTACT ─── */
+    /* ── AI STRIPE ── */
+    .ai-stripe {
+      background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0; overflow: hidden; position: relative;
+    }
+    .ai-stripe-track {
+      display: flex; gap: 2rem; width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .ai-stripe-item { font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); white-space: nowrap; display: flex; align-items: center; gap: 0.5rem; }
+    .ai-stripe-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+    .ai-stripe-fade-l, .ai-stripe-fade-r {
+      position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
+    }
+    .ai-stripe-fade-l { left: 0; background: linear-gradient(to right, var(--bg-2), transparent); }
+    .ai-stripe-fade-r { right: 0; background: linear-gradient(to left, var(--bg-2), transparent); }
+
+    /* ── CONTACT ── */
     #contact { background: var(--bg-2); }
-    .contact-inner { text-align: center; max-width: 560px; margin: 0 auto; }
-    .contact-inner h2 { margin-bottom: 0.75rem; }
-    .contact-inner p { margin-bottom: 2rem; }
+    .contact-wrap { text-align: center; max-width: 540px; margin: 0 auto; }
+    .contact-email { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: var(--accent); display: block; margin: 1.5rem 0; }
     .contact-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
     .contact-link {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.7rem 1.4rem; border-radius: 100px; font-size: 0.85rem; font-weight: 500;
-      border: 1px solid var(--border); color: var(--text); transition: all var(--transition);
+      padding: 0.65rem 1.3rem; border-radius: 100px; font-size: 0.84rem; font-weight: 500;
+      border: 1px solid var(--border); color: var(--text); transition: all var(--t);
     }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-    .contact-email { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 1.5rem; display: block; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      padding: 2rem 0; border-top: 1px solid var(--border); text-align: center;
-      font-size: 0.78rem; color: var(--text-muted);
+    /* ── FOOTER ── */
+    footer { padding: 2rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.77rem; color: var(--text-muted); }
+    footer a { color: var(--accent); }
+
+    /* ── TWEAKS PANEL ── */
+    #tweaks-panel {
+      display: none;
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 500;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.25rem 1.4rem; min-width: 220px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     }
-    footer span { color: var(--accent); }
-
-    /* ─── Divider ─── */
-    .divider { height: 1px; background: var(--border); }
-
-    /* ─── KG Monogram SVG ─── */
-    .kg-logo { width: 32px; height: 32px; }
+    #tweaks-panel.visible { display: block; }
+    .tweaks-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-bottom: 1.1rem; }
+    .tweak-row { margin-bottom: 1rem; }
+    .tweak-label { font-size: 0.78rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+    .tweak-label span { color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; }
+    input[type=range] {
+      width: 100%; accent-color: var(--accent); cursor: pointer;
+      height: 4px; border-radius: 2px;
+    }
   </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- NAV -->
 <nav id="navbar">
   <div class="container">
     <a href="#hero" class="nav-logo">
-      <svg class="kg-logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="KG">
-        <rect width="40" height="40" rx="8" fill="currentColor" fill-opacity="0.06"/>
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+        <rect width="40" height="40" rx="8" fill="currentColor" fill-opacity="0.07"/>
         <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle"
-          font-family="'Instrument Serif', serif" font-size="18" fill="currentColor"
-          letter-spacing="-1">KG</text>
+          font-family="'Instrument Serif',serif" font-size="18" fill="currentColor" letter-spacing="-1">KG</text>
       </svg>
       Kushagr Gupta
     </a>
@@ -315,11 +367,7 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
-        <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" display="none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a href="javascript:void(0)" class="btn btn-primary" style="font-size:0.78rem;padding:0.55rem 1.1rem;" onclick="alert('CV download coming soon!')">Download CV</a>
+      <a href="javascript:void(0)" class="btn btn-primary" style="font-size:0.78rem;padding:0.52rem 1.05rem;" onclick="alert('CV coming soon!')">Download CV</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -328,139 +376,150 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#experience">Experience</a>
-  <a href="#education">Education</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+  <a href="#experience" onclick="this.closest('.mobile-menu').classList.remove('open')">Experience</a>
+  <a href="#education" onclick="this.closest('.mobile-menu').classList.remove('open')">Education</a>
+  <a href="#projects" onclick="this.closest('.mobile-menu').classList.remove('open')">Projects</a>
+  <a href="#skills" onclick="this.closest('.mobile-menu').classList.remove('open')">Skills</a>
+  <a href="#about" onclick="this.closest('.mobile-menu').classList.remove('open')">About</a>
+  <a href="#contact" onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
 </div>
 
-<main>
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-gradient"></div>
   <div class="container hero-inner">
-    <div class="hero-eyebrow reveal">
-      <div class="hero-dot"></div>
-      <span>Open to Werkstudent &amp; Internship roles · Hamburg, Germany</span>
+    <div class="hero-status reveal">
+      <div class="status-dot"></div>
+      <span class="status-text">open_to_work — Hamburg, Germany</span>
     </div>
     <h1 class="hero-title reveal reveal-delay-1">
       Hi, I'm<br/>
       <em>Kushagr</em> —<br/>
-      building at the<br/>
-      intersection of<br/>
-      software, data &amp; people.
+      engineering at the<br/>
+      edge of <span class="cool-word">intelligence</span>.
     </h1>
     <p class="hero-sub reveal reveal-delay-2">
-      Information Engineering student at HAW Hamburg. I write code, design systems, and love the moments when technology actually solves a real human problem.
+      Information Engineering student at HAW Hamburg. I write code, build AI workflows, and chase the moments when technology genuinely makes things work better for people.
     </p>
     <div class="hero-cta reveal reveal-delay-3">
       <a href="#projects" class="btn btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         See My Work
       </a>
-      <a href="javascript:void(0)" class="btn btn-outline" onclick="alert('CV download coming soon!')">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <a href="#" class="btn btn-outline" onclick="alert('CV coming soon!');return false;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download CV
       </a>
     </div>
+    <div class="hero-chips reveal reveal-delay-4">
+      <span class="hero-chip">Python</span>
+      <span class="hero-chip">SQL</span>
+      <span class="hero-chip lit">AI / ML</span>
+      <span class="hero-chip lit">LLM Workflows</span>
+      <span class="hero-chip">ERP Systems</span>
+      <span class="hero-chip">Embedded C</span>
+      <span class="hero-chip lit">n8n Automation</span>
+      <span class="hero-chip">German B2+</span>
+    </div>
   </div>
-  <div class="scroll-hint">
-    <div class="scroll-arrow"></div>
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+    scroll
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- AI TICKER STRIPE -->
+<div class="ai-stripe">
+  <div class="ai-stripe-fade-l"></div>
+  <div class="ai-stripe-fade-r"></div>
+  <div class="ai-stripe-track">
+    <span class="ai-stripe-item"><span class="dot"></span>Large Language Models</span>
+    <span class="ai-stripe-item"><span class="dot"></span>AI Workflow Automation</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Python Data Pipelines</span>
+    <span class="ai-stripe-item"><span class="dot"></span>ERP Integration</span>
+    <span class="ai-stripe-item"><span class="dot"></span>n8n · Claude AI · OpenAI APIs</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Signal Processing</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Embedded Systems</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Digitalization</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Large Language Models</span>
+    <span class="ai-stripe-item"><span class="dot"></span>AI Workflow Automation</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Python Data Pipelines</span>
+    <span class="ai-stripe-item"><span class="dot"></span>ERP Integration</span>
+    <span class="ai-stripe-item"><span class="dot"></span>n8n · Claude AI · OpenAI APIs</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Signal Processing</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Embedded Systems</span>
+    <span class="ai-stripe-item"><span class="dot"></span>Digitalization</span>
+  </div>
+</div>
 
-<!-- ─── EXPERIENCE ─── -->
+<!-- EXPERIENCE -->
 <section id="experience" class="section">
   <div class="container">
     <p class="section-label reveal">Work Experience</p>
     <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">Where I've made<br/><em>an impact</em></h2>
-
     <div class="timeline">
 
-      <div class="timeline-item reveal">
-        <div class="timeline-line">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="tl-header">
-            <div class="tl-role">Werkstudent — Marketing Support Agent</div>
-          </div>
+      <div class="tl-item reveal">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-role">Werkstudent — Marketing Support Agent</div>
           <div class="tl-meta">
             <span class="tl-company">Coracle GmbH, Hamburg</span>
-            <span class="tag">May 2024 – Feb 2026</span>
+            <span class="tl-period">May 2024 – Feb 2026</span>
           </div>
           <ul class="tl-list">
-            <li>Handled 30–50 customer enquiries weekly across social media channels, maintaining response quality under volume.</li>
-            <li>Established and moderated online communities; drafted structural documents and internal communication frameworks.</li>
-            <li>Represented Coracle at job fairs and industry events, nurturing business partnerships.</li>
-            <li>Supported the company through an M&A transition — navigating team dynamics and communication during acquisition.</li>
+            <li>Handled 30–50 customer enquiries weekly across social channels, maintaining quality at volume.</li>
+            <li>Established and moderated online communities; drafted internal communication frameworks.</li>
+            <li>Represented Coracle at job fairs, nurturing business partnerships.</li>
+            <li>Navigated company through M&A transition — managing team dynamics during acquisition.</li>
           </ul>
         </div>
       </div>
 
-      <div class="timeline-item reveal reveal-delay-1">
-        <div class="timeline-line">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="tl-header">
-            <div class="tl-role">OE Tutor (Orientierungseinheit)</div>
-          </div>
+      <div class="tl-item reveal reveal-delay-1">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-role">OE Tutor — Orientation Week</div>
           <div class="tl-meta">
             <span class="tl-company">HAW Hamburg</span>
-            <span class="tag">Recurring, multiple semesters</span>
+            <span class="tl-period">Recurring, multiple semesters</span>
           </div>
           <ul class="tl-list">
-            <li>Hosted week-long orientation sessions for incoming international students representing 50+ countries.</li>
-            <li>Organized semester-long events and social activities to foster community integration.</li>
-            <li>Served as a go-to bureaucratic support contact — navigating German university systems for students fresh off the plane.</li>
+            <li>Hosted orientation sessions for incoming international students from 50+ countries.</li>
+            <li>Organized semester-long community events and integration activities.</li>
+            <li>Served as bureaucratic support contact — navigating German university systems for newcomers.</li>
           </ul>
         </div>
       </div>
 
-      <div class="timeline-item reveal reveal-delay-2">
-        <div class="timeline-line">
-          <div class="timeline-dot"></div>
-          <div class="timeline-connector"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="tl-header">
-            <div class="tl-role">ERP &amp; Mobile App Development Intern</div>
-          </div>
+      <div class="tl-item reveal reveal-delay-2">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-role">ERP &amp; Mobile App Development Intern</div>
           <div class="tl-meta">
             <span class="tl-company">ABC Info Soft Pvt. Ltd., India</span>
-            <span class="tag">3.5 months</span>
+            <span class="tl-period">3.5 months</span>
           </div>
           <ul class="tl-list">
             <li>Designed and implemented ERP software modules tailored to client business processes.</li>
-            <li>Contributed to mobile application development — from requirement gathering to feature implementation.</li>
-            <li>Gained hands-on exposure to real-world enterprise software delivery cycles.</li>
+            <li>Contributed to mobile app development from requirement gathering to feature release.</li>
+            <li>Hands-on experience with enterprise software delivery cycles.</li>
           </ul>
         </div>
       </div>
 
-      <div class="timeline-item reveal reveal-delay-3">
-        <div class="timeline-line">
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="tl-header">
-            <div class="tl-role">Werkstudent — Bar Operations &amp; Dorm Council Rep</div>
-          </div>
+      <div class="tl-item reveal reveal-delay-3">
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-role">Bar Operations &amp; Dorm Council (Heimrat)</div>
           <div class="tl-meta">
             <span class="tl-company">Student Residence, Hamburg</span>
-            <span class="tag">Ongoing</span>
+            <span class="tl-period">Ongoing</span>
           </div>
           <ul class="tl-list">
-            <li>Managed bar team operations — stock, rotas, and service delivery for dorm events.</li>
-            <li>Served as Heimrat (Dorm Council) representative, voicing resident interests and organizing community events.</li>
+            <li>Managed bar team operations — stock, rotas, and event service delivery.</li>
+            <li>Served as Heimrat representative, voicing resident interests and organizing community events.</li>
           </ul>
         </div>
       </div>
@@ -471,7 +530,7 @@
 
 <div class="divider"></div>
 
-<!-- ─── EDUCATION ─── -->
+<!-- EDUCATION -->
 <section id="education" class="section">
   <div class="container">
     <p class="section-label reveal">Education</p>
@@ -480,190 +539,122 @@
     <div class="edu-main reveal reveal-delay-2">
       <div class="edu-degree serif">B.Sc. Information Engineering</div>
       <div class="edu-uni">HAW Hamburg — Hochschule für Angewandte Wissenschaften</div>
-      <p style="font-size:0.85rem;color:var(--text-muted);">Ongoing · Hamburg, Germany · Originally from New Delhi, India</p>
+      <p style="font-size:0.84rem;color:var(--text-muted);">Ongoing · Hamburg, Germany · Originally from New Delhi, India</p>
       <div class="edu-tags">
-        <span class="tag">Software Engineering</span>
+        <span class="tag cool">Software Engineering</span>
+        <span class="tag cool">Data Analysis &amp; ML</span>
         <span class="tag">Cryptography &amp; Security</span>
         <span class="tag">Embedded Systems</span>
         <span class="tag">Signal Processing</span>
-        <span class="tag">Data Analysis</span>
         <span class="tag">ERP Systems</span>
         <span class="tag">Databases &amp; SQL</span>
       </div>
     </div>
 
-    <h3 class="reveal" style="margin-bottom:1.25rem;font-size:1rem;color:var(--text-muted);font-family:inherit;font-weight:500;">All modules by phase — click to expand</h3>
-    <div class="edu-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
-
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.25rem;" class="reveal">Curriculum by semester — click to expand</p>
+    <div class="edu-grid">
       <details class="card edu-card reveal">
-        <summary>
-          🧱 Semester 1 — Foundations
-          <div class="chevron">▾</div>
-        </summary>
+        <summary>🧱 Semester 1 — Foundations<div class="chevron">▾</div></summary>
         <div class="edu-detail">
-          <strong style="color:var(--text);">Mathematics 1</strong><br/>
-          Differential calculus and linear algebra — functions, sequences, series, matrices, eigenvalues, and complex numbers. The mathematical backbone for every engineering subject that follows.<br/><br/>
-          <strong style="color:var(--text);">Software Construction 1</strong><br/>
-          Hands-on C programming: data types, control flow, functions, pointers, memory management, and file I/O. Console applications and debugging in an IDE — essential groundwork for microcontroller work later.<br/><br/>
-          <strong style="color:var(--text);">Electrical Engineering 1</strong><br/>
-          DC and AC circuit analysis — Kirchhoff's laws, Thevenin's theorem, phasors, filters, resonance circuits. Lab sessions with real instruments and SPICE simulations.<br/><br/>
-          <strong style="color:var(--text);">German &amp; Study Methods</strong><br/>
-          Language training from A1 to C2 level, plus academic methods, time management, and teamwork strategies. Included a company excursion to Airbus.
+          <strong style="color:var(--text);">Mathematics 1</strong> — differential calculus, linear algebra, eigenvalues, complex numbers.<br/><br/>
+          <strong style="color:var(--text);">Software Construction 1</strong> — C programming: data types, pointers, memory, file I/O.<br/><br/>
+          <strong style="color:var(--text);">Electrical Engineering 1</strong> — DC/AC circuit analysis, Kirchhoff's laws, SPICE simulations.<br/><br/>
+          <strong style="color:var(--text);">German &amp; Study Methods</strong> — Language training A1→C2, academic methods, Airbus excursion.
         </div>
       </details>
-
       <details class="card edu-card reveal reveal-delay-1">
-        <summary>
-          🔁 Semester 2 — Core Expansion
-          <div class="chevron">▾</div>
-        </summary>
+        <summary>🔁 Semester 2 — Core Expansion<div class="chevron">▾</div></summary>
         <div class="edu-detail">
-          <strong style="color:var(--text);">Mathematics 2</strong><br/>
-          Integral calculus, differential equations, combinatorics, probability theory, and stochastics — the tools needed for signals, systems, and communications.<br/><br/>
-          <strong style="color:var(--text);">Software Construction 2</strong><br/>
-          Transition from C to Java: OOP principles (classes, inheritance, encapsulation), APIs, GUIs, and threads. Built data visualization applications.<br/><br/>
-          <strong style="color:var(--text);">Electrical Engineering 2</strong><br/>
-          Advanced AC circuits, transient signals in RLC networks, transformers, multiphase systems, and oscilloscope-based measurement automation.<br/><br/>
-          <strong style="color:var(--text);">Electronics 1</strong><br/>
-          Semiconductor physics, diodes, bipolar transistors, MOSFETs — rectifier circuits, amplifiers, current mirrors, and constant current sources via SPICE.<br/><br/>
-          <strong style="color:var(--text);">Intercultural Competence &amp; Agile Methods</strong><br/>
-          Cultural communication dynamics and a week-long team project building a technical product from scratch using design thinking and agile methods.
+          <strong style="color:var(--text);">Mathematics 2</strong> — integral calculus, differential equations, probability &amp; stochastics.<br/><br/>
+          <strong style="color:var(--text);">Software Construction 2</strong> — C → Java: OOP, APIs, GUIs, threads, data visualization.<br/><br/>
+          <strong style="color:var(--text);">Electrical Engineering 2</strong> — transient signals, RLC networks, oscilloscope automation.<br/><br/>
+          <strong style="color:var(--text);">Intercultural &amp; Agile Methods</strong> — design thinking, week-long agile team project.
         </div>
       </details>
-
       <details class="card edu-card reveal reveal-delay-2">
-        <summary>
-          ⚙️ Semester 3 — Hardware &amp; Software Depth
-          <div class="chevron">▾</div>
-        </summary>
+        <summary>⚙️ Semester 3 — Hardware &amp; Software Depth<div class="chevron">▾</div></summary>
         <div class="edu-detail">
-          <strong style="color:var(--text);">Signals &amp; Systems 1</strong><br/>
-          Fourier and Laplace transforms for continuous-time signal analysis. Understanding filters and predicting system outputs — the theoretical basis for all DSP work.<br/><br/>
-          <strong style="color:var(--text);">Algorithms &amp; Data Structures</strong><br/>
-          Trees, queues, graphs, sorting, searching, and finite-state automata. Complexity analysis and writing software that actually scales.<br/><br/>
-          <strong style="color:var(--text);">Electronics 2</strong><br/>
-          Differential amplifiers, op-amps, active filter design; digital logic families, ADC/DAC converters. Simulated and measured in lab.<br/><br/>
-          <strong style="color:var(--text);">Digital Circuits</strong><br/>
-          Boolean algebra, Karnaugh maps, state machines, and HDL/VHDL. Designed flip-flops, counters, shift registers, and programmable logic.<br/><br/>
-          <strong style="color:var(--text);">Economics &amp; Management</strong><br/>
-          SWOT, Balanced Scorecard, supply chain management, cost estimation, and investment analysis — engineering decisions in a business context.
+          <strong style="color:var(--text);">Algorithms &amp; Data Structures</strong> — trees, graphs, sorting, complexity, finite-state automata.<br/><br/>
+          <strong style="color:var(--text);">Signals &amp; Systems 1</strong> — Fourier/Laplace transforms, filters, DSP foundations.<br/><br/>
+          <strong style="color:var(--text);">Digital Circuits</strong> — Boolean algebra, Karnaugh maps, VHDL, state machines.<br/><br/>
+          <strong style="color:var(--text);">Economics &amp; Management</strong> — SWOT, balanced scorecard, cost estimation.
         </div>
       </details>
-
       <details class="card edu-card reveal reveal-delay-3">
-        <summary>
-          🔗 Semester 4 — Systems Integration
-          <div class="chevron">▾</div>
-        </summary>
+        <summary>🔗 Semester 4 — Systems Integration<div class="chevron">▾</div></summary>
         <div class="edu-detail">
-          <strong style="color:var(--text);">Signals &amp; Systems 2</strong><br/>
-          Discrete-time domain, z-transforms, sampling theorem, stochastic signals, noise, and correlation functions — foundational for digital comms.<br/><br/>
-          <strong style="color:var(--text);">Software Engineering</strong><br/>
-          Requirements engineering, UML modeling (class, state, sequence diagrams), design patterns, and testing. Building maintainable professional software.<br/><br/>
-          <strong style="color:var(--text);">Microcontrollers</strong><br/>
-          Embedded deep-dive: processor architecture, GPIO, serial interfaces, ADC/DAC, timers, and interrupt-driven C on ARM Cortex-M hardware.<br/><br/>
-          <strong style="color:var(--text);">Digital Systems</strong><br/>
-          FPGA implementation, pipelining, clock synchronization, metastability, and coprocessor architecture — real digital systems on programmable logic.<br/><br/>
-          <strong style="color:var(--text);">Databases</strong><br/>
-          ER modeling, SQL, normalization, constraints, views, triggers, and transactions — directly applied in building data-driven applications.
+          <strong style="color:var(--text);">Software Engineering</strong> — UML, design patterns, requirements engineering, testing.<br/><br/>
+          <strong style="color:var(--text);">Microcontrollers</strong> — ARM Cortex-M, GPIO, ADC/DAC, interrupt-driven C.<br/><br/>
+          <strong style="color:var(--text);">Databases</strong> — ER modeling, SQL, normalization, triggers, transactions.<br/><br/>
+          <strong style="color:var(--text);">Signals &amp; Systems 2</strong> — z-transforms, sampling theorem, stochastic signals.
         </div>
       </details>
-
       <details class="card edu-card reveal reveal-delay-1">
-        <summary>
-          🏭 Semester 5 — Industry &amp; Project Work
-          <div class="chevron">▾</div>
-        </summary>
+        <summary>🏭 Semester 5 — Industry &amp; Project Work<div class="chevron">▾</div></summary>
         <div class="edu-detail">
-          <strong style="color:var(--text);">Internship (20 weeks)</strong><br/>
-          Full-semester placement in an engineering company applying everything learned in a real professional environment. Concluded with an internship report and presentation colloquium.<br/><br/>
-          <strong style="color:var(--text);">Elective Project 1</strong><br/>
-          Team project (3–5 members) on a self-chosen Information Engineering topic — hardware, software, data analysis, or simulation. Developed project management and technical communication skills alongside the internship.
+          <strong style="color:var(--text);">Internship (20 weeks)</strong> — full-semester placement applying engineering skills professionally. Concluded with written report and colloquium.<br/><br/>
+          <strong style="color:var(--text);">Elective Project 1</strong> — team project (3–5 members) on self-chosen Information Engineering topic.
         </div>
       </details>
-
       <details class="card edu-card reveal reveal-delay-2">
-        <summary>
-          🚀 Semester 6 — Advanced Specialization
-          <div class="chevron">▾</div>
-        </summary>
+        <summary>🚀 Semester 6 — Advanced Specialization<div class="chevron">▾</div></summary>
         <div class="edu-detail">
-          <strong style="color:var(--text);">Bus Systems &amp; Sensors</strong><br/>
-          Sensor technology, signal conditioning, and industrial communication protocols (I²C, CAN, PCI, LON) for distributed measurement and data acquisition systems.<br/><br/>
-          <strong style="color:var(--text);">Operating Systems</strong><br/>
-          Multitasking, processes, threads, synchronization, resource allocation, and I/O programming in C on Linux environments.<br/><br/>
-          <strong style="color:var(--text);">Digital Signal Processing</strong><br/>
-          Real-time DSP implementation in MATLAB/Simulink and C: FFT/DFT, FIR/IIR filter design, windowing, and number representation on a DSP chip.<br/><br/>
-          <strong style="color:var(--text);">Digital Communication Systems</strong><br/>
-          Full transmission chain — source coding, modulation, channel models, equalization, error correction, Shannon capacity limit, and software-defined radio.
+          <strong style="color:var(--text);">Digital Signal Processing</strong> — FFT/DFT, FIR/IIR filters in MATLAB/C on a DSP chip.<br/><br/>
+          <strong style="color:var(--text);">Operating Systems</strong> — processes, threads, synchronization, I/O programming in Linux C.<br/><br/>
+          <strong style="color:var(--text);">Digital Communication Systems</strong> — modulation, channel models, error correction, SDR.<br/><br/>
+          <strong style="color:var(--text);">Bus Systems &amp; Sensors</strong> — I²C, CAN, industrial protocols, sensor signal conditioning.
         </div>
       </details>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ─── PROJECTS ─── -->
+<!-- PROJECTS -->
 <section id="projects" class="section">
   <div class="container">
     <p class="section-label reveal">Projects</p>
     <h2 class="reveal reveal-delay-1" style="margin-bottom:2.5rem;">Things I've<br/><em>built</em></h2>
-
     <div class="projects-grid">
 
       <div class="card proj-card reveal">
-        <div class="proj-icon">🕸️</div>
+        <div class="proj-num">01 / PROJECT</div>
         <div class="proj-title">Jobscraper / Job Tracker</div>
-        <div class="proj-desc">
-          Python automation tool that reads a curated Excel list of companies, scrapes their career pages for open roles, and tracks application status — so you spend time applying, not searching.
-        </div>
+        <div class="proj-desc">Python automation that reads a curated Excel list of companies, scrapes career pages for open roles, and tracks application status — so you spend time applying, not searching.</div>
         <div class="proj-tags">
           <span class="tag">Python</span>
           <span class="tag">Web Scraping</span>
-          <span class="tag">Automation</span>
-          <span class="tag">Excel/openpyxl</span>
+          <span class="tag cool">Automation</span>
+          <span class="tag">openpyxl</span>
         </div>
-        <a href="https://github.com/kushagr2602/jobscraper" target="_blank" rel="noopener" class="proj-link">
-          View on GitHub →
-        </a>
+        <a href="https://github.com/kushagr2602/jobscraper" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
       </div>
 
       <div class="card proj-card reveal reveal-delay-1">
-        <div class="proj-icon">🔑</div>
+        <div class="proj-num">02 / PROJECT</div>
         <div class="proj-title">RSA Implementation</div>
-        <div class="proj-desc">
-          Cryptography lab project: implemented RSA encryption from first principles. Prime generation, Euler's totient, modular inverse, key pair construction, and the encrypt/decrypt pipeline — no crypto library shortcuts.
-        </div>
+        <div class="proj-desc">Cryptography project: RSA from first principles. Prime generation, Euler's totient, modular inverse, key construction, encrypt/decrypt — zero crypto library shortcuts.</div>
         <div class="proj-tags">
           <span class="tag">Python</span>
           <span class="tag">Cryptography</span>
           <span class="tag">Number Theory</span>
         </div>
-        <span class="proj-link" style="color:var(--text-muted);cursor:default;">University coursework</span>
+        <span class="proj-link" style="color:var(--text-muted);cursor:default;font-size:0.77rem;">University coursework</span>
       </div>
 
-      <div class="card proj-card proj-placeholder reveal reveal-delay-2">
-        <div class="proj-icon">🚧</div>
-        <div class="proj-title">Coming Soon</div>
-        <div class="proj-desc">
-          Next project in progress. Stay tuned — something in the AI/automation or data space.
-        </div>
-        <div class="proj-tags">
-          <span class="tag">TBD</span>
-        </div>
+      <div class="card proj-card placeholder-card reveal reveal-delay-2">
+        <div class="proj-num">03 / COMING SOON</div>
+        <div class="proj-title">AI Workflow Project</div>
+        <div class="proj-desc">Something in the AI/automation space — combining LLM tooling with practical data pipelines. Follow GitHub for updates.</div>
+        <div class="proj-tags"><span class="tag cool">TBD</span></div>
       </div>
 
-      <div class="card proj-card proj-placeholder reveal reveal-delay-3">
-        <div class="proj-icon">🚧</div>
-        <div class="proj-title">Coming Soon</div>
-        <div class="proj-desc">
-          Another project in the pipeline. Follow on GitHub for updates.
-        </div>
-        <div class="proj-tags">
-          <span class="tag">TBD</span>
-        </div>
+      <div class="card proj-card placeholder-card reveal reveal-delay-3">
+        <div class="proj-num">04 / COMING SOON</div>
+        <div class="proj-title">More in Pipeline</div>
+        <div class="proj-desc">Another project building up. Check the GitHub profile for what's active.</div>
+        <div class="proj-tags"><span class="tag cool">TBD</span></div>
         <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="proj-link">GitHub Profile →</a>
       </div>
 
@@ -673,12 +664,11 @@
 
 <div class="divider"></div>
 
-<!-- ─── SKILLS ─── -->
+<!-- SKILLS -->
 <section id="skills" class="section">
   <div class="container">
     <p class="section-label reveal">Skills &amp; Tools</p>
     <h2 class="reveal reveal-delay-1" style="margin-bottom:2.5rem;">My <em>toolkit</em></h2>
-
     <div class="skills-grid">
 
       <div class="card reveal">
@@ -688,39 +678,59 @@
           <span class="skill-pill">SQL</span>
           <span class="skill-pill">C / C++</span>
           <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Java</span>
         </div>
       </div>
 
       <div class="card reveal reveal-delay-1">
+        <div class="skill-group-label">AI &amp; Automation <span class="ai-badge">↑ focus</span></div>
+        <div class="skill-pills">
+          <span class="skill-pill ai-pill">Claude AI</span>
+          <span class="skill-pill ai-pill">OpenAI APIs</span>
+          <span class="skill-pill ai-pill">n8n</span>
+          <span class="skill-pill ai-pill">LLM Workflows</span>
+          <span class="skill-pill ai-pill">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <div class="card reveal reveal-delay-2">
         <div class="skill-group-label">Tools &amp; Platforms</div>
         <div class="skill-pills">
           <span class="skill-pill">VS Code</span>
           <span class="skill-pill">Cursor</span>
           <span class="skill-pill">Git / GitHub</span>
           <span class="skill-pill">Notion</span>
-          <span class="skill-pill">N8N</span>
-          <span class="skill-pill">Claude AI</span>
-        </div>
-      </div>
-
-      <div class="card reveal reveal-delay-2">
-        <div class="skill-group-label">Systems &amp; Domains</div>
-        <div class="skill-pills">
-          <span class="skill-pill">ERP Systems</span>
-          <span class="skill-pill">CRM</span>
-          <span class="skill-pill">IT Integration</span>
-          <span class="skill-pill">API Development</span>
-          <span class="skill-pill">IoT / Embedded</span>
+          <span class="skill-pill">MATLAB</span>
         </div>
       </div>
 
       <div class="card reveal reveal-delay-3">
-        <div class="skill-group-label">Soft Skills</div>
+        <div class="skill-group-label">Systems &amp; Domains</div>
+        <div class="skill-pills">
+          <span class="skill-pill">ERP Systems</span>
+          <span class="skill-pill">CRM</span>
+          <span class="skill-pill">Embedded / IoT</span>
+          <span class="skill-pill">API Development</span>
+          <span class="skill-pill">FPGA / VHDL</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="skill-group-label">Human Skills</div>
         <div class="skill-pills">
           <span class="skill-pill">Community Management</span>
           <span class="skill-pill">Cross-cultural Comms</span>
-          <span class="skill-pill">Event Organization</span>
           <span class="skill-pill">Technical Writing</span>
+          <span class="skill-pill">Event Organization</span>
+        </div>
+      </div>
+
+      <div class="card reveal reveal-delay-1">
+        <div class="skill-group-label">Languages (spoken)</div>
+        <div class="skill-pills">
+          <span class="skill-pill">English — Fluent</span>
+          <span class="skill-pill">German — B2+</span>
+          <span class="skill-pill">Hindi — Native</span>
         </div>
       </div>
 
@@ -730,72 +740,61 @@
 
 <div class="divider"></div>
 
-<!-- ─── ABOUT ─── -->
+<!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
     <p class="section-label reveal">About Me</p>
     <div class="about-grid">
-      <div class="about-avatar reveal">
-        <div class="avatar-placeholder">
-          <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="avatarGrad" cx="50%" cy="40%" r="55%">
-                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.18"/>
-                <stop offset="100%" stop-color="transparent"/>
-              </radialGradient>
-            </defs>
-            <rect width="200" height="200" fill="url(#avatarGrad)"/>
-            <text x="50%" y="47%" dominant-baseline="middle" text-anchor="middle"
-              font-family="'Instrument Serif', serif" font-size="64" fill="var(--accent)" opacity="0.85">KG</text>
-            <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle"
-              font-family="Inter, sans-serif" font-size="11" fill="var(--text-muted)" font-weight="500" letter-spacing="2">KUSHAGR GUPTA</text>
-          </svg>
+      <div class="photo-frame reveal">
+        <div class="photo-placeholder">
+          <div class="photo-initials">KG</div>
+          <div class="photo-label">Photo coming soon<br/>kushagr@hamburg</div>
         </div>
       </div>
       <div class="reveal reveal-delay-1">
         <h2 style="margin-bottom:1.25rem;">Technical depth,<br/><em>people-first mindset.</em></h2>
-        <p style="margin-bottom:1rem;font-size:0.95rem;">
-          I'm Kushagr — originally from India, now based in Hamburg where I'm studying Information Engineering at HAW Hamburg. I like building things: Python scripts, ERP modules, community structures, dorm events.
+        <p style="margin-bottom:1rem;font-size:0.94rem;">
+          I'm Kushagr — from New Delhi, now based in Hamburg studying Information Engineering at HAW Hamburg. I like building things: Python scripts, AI automation workflows, ERP modules, community structures.
         </p>
-        <p style="margin-bottom:1rem;font-size:0.95rem;">
-          The thread connecting all of it is figuring out how technology can actually make things work better for people. I'm looking for Werkstudent or internship roles where I can contribute on the engineering side while continuing to learn.
+        <p style="margin-bottom:1rem;font-size:0.94rem;">
+          The thread connecting all of it is figuring out how technology — especially intelligent systems — can actually make things work better for people. I'm actively seeking Werkstudent or internship roles in AI/ML, software development, or digitalization.
         </p>
-        <p style="font-size:0.95rem;">
-          Outside the terminal: I follow Formula One obsessively, I'm quietly convinced that air fryers are underrated kitchen technology, and I'll talk to you about aviation digitalization for longer than you'd like.
+        <p style="font-size:0.94rem;">
+          Outside the terminal: obsessive Formula One follower, advocate for air fryers as peak kitchen technology, and I'll happily talk aviation digitalization longer than is socially acceptable.
         </p>
-        <div class="about-interests">
+        <div class="interest-chips">
           <span class="interest-chip">✈️ Aviation &amp; Digitalization</span>
           <span class="interest-chip">🏎️ Formula One</span>
+          <span class="interest-chip">🤖 AI Tools</span>
           <span class="interest-chip">🍳 Cooking</span>
           <span class="interest-chip">🌍 Community Building</span>
-          <span class="interest-chip">🇩🇪 Hamburg</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
+<!-- CONTACT -->
 <section id="contact" class="section">
   <div class="container">
-    <div class="contact-inner reveal">
+    <div class="contact-wrap reveal">
       <p class="section-label" style="justify-content:center;">Get In Touch</p>
       <h2 style="margin-bottom:0.75rem;">Let's <em>talk</em></h2>
-      <p style="margin-bottom:2rem;">
-        I'm actively looking for Werkstudent or internship positions in software development, AI/ML, ERP, or digitalization. If something above caught your attention — I'd love to chat.
+      <p style="margin-bottom:0.5rem;">
+        Actively looking for Werkstudent or internship positions in AI/ML, software development, ERP, or digitalization. If something above caught your eye — reach out.
       </p>
       <a href="mailto:kushagr.kg@gmail.com" class="contact-email">kushagr.kg@gmail.com</a>
       <div class="contact-links">
         <a href="mailto:kushagr.kg@gmail.com" class="contact-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email Me
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
         </a>
         <a href="https://www.linkedin.com/in/kushagr-gupta-892789219/" target="_blank" rel="noopener" class="contact-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn
         </a>
         <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="contact-link">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
       </div>
@@ -803,77 +802,219 @@
   </div>
 </section>
 
-</main>
-
-<!-- ─── FOOTER ─── -->
 <footer>
   <div class="container">
-    <p>Built by <span>Kushagr Gupta</span> · Hamburg, 2026 · <a href="https://github.com/kushagr2602" style="color:var(--accent)">github.com/kushagr2602</a></p>
+    <p>Built by Kushagr Gupta · Hamburg · <a href="https://github.com/kushagr2602">github.com/kushagr2602</a></p>
   </div>
 </footer>
 
-<script>
-  // ─── Theme Toggle ───
-  const html = document.documentElement;
-  const btn = document.getElementById('themeToggle');
-  const iconSun = document.getElementById('iconSun');
-  const iconMoon = document.getElementById('iconMoon');
 
-  function setTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    if (theme === 'light') {
-      iconSun.setAttribute('display', 'block');
-      iconMoon.setAttribute('display', 'none');
-    } else {
-      iconSun.setAttribute('display', 'none');
-      iconMoon.setAttribute('display', 'block');
+<script>
+// ── Nav scroll ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+// ── Hamburger ──
+document.getElementById('hamburger').addEventListener('click', () =>
+  document.getElementById('mobileMenu').classList.toggle('open'));
+
+// ── Reveal ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+setTimeout(() => document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible')), 80);
+
+// ── Oscilloscope + Terminal Canvas ──
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, animId, t = 0;
+  let intensity = parseInt(localStorage.getItem('kg-anim') || '1');
+
+  // Terminal lines pool
+  const termLines = [
+    '> python jobscraper.py --run',
+    '  scanning 24 career pages...',
+    '  [██████████████░░] 87%',
+    '> import numpy as np',
+    '> model.fit(X_train, y_train)',
+    '  Epoch 12/50 — loss: 0.0821',
+    '> SELECT * FROM applications',
+    '  WHERE status = "open";',
+    '> ssh kushagr@hamburg.local',
+    '  Connected. Welcome back.',
+    '> ./rsa_keygen --bits 2048',
+    '  Generating prime p...',
+    '  Key pair ready.',
+    '> git commit -m "feat: ai agent"',
+    '  [main 4f2c1a9] feat: ai agent',
+    '> n8n start --tunnel',
+    '  Workflow engine active.',
+    '> import anthropic',
+    '  client = anthropic.Anthropic()',
+    '> curl /api/v1/predict',
+    '  {"confidence": 0.94}',
+  ];
+  let activeLines = [];
+  let lineTimer = 0;
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function isLight() { return html.getAttribute('data-theme') === 'light'; }
+
+  function drawGrid() {
+    const light = isLight();
+    const gridColor = light ? 'rgba(139,100,32,' : 'rgba(201,169,110,';
+    const cols = 12, rows = 8;
+    const cw = W / cols, ch = H / rows;
+
+    ctx.lineWidth = 0.5;
+    // verticals
+    for (let i = 1; i < cols; i++) {
+      ctx.beginPath();
+      ctx.moveTo(i * cw, 0); ctx.lineTo(i * cw, H);
+      ctx.strokeStyle = gridColor + (i % 3 === 0 ? '0.07' : '0.03') + ')';
+      ctx.stroke();
+    }
+    // horizontals
+    for (let j = 1; j < rows; j++) {
+      ctx.beginPath();
+      ctx.moveTo(0, j * ch); ctx.lineTo(W, j * ch);
+      ctx.strokeStyle = gridColor + (j % 2 === 0 ? '0.07' : '0.03') + ')';
+      ctx.stroke();
+    }
+    // center crosshair ticks
+    ctx.strokeStyle = gridColor + '0.12)';
+    ctx.lineWidth = 0.8;
+    const cx = W/2, cy = H/2;
+    for (let i = 0; i <= cols; i++) {
+      ctx.beginPath(); ctx.moveTo(i*cw, cy-4); ctx.lineTo(i*cw, cy+4); ctx.stroke();
+    }
+    for (let j = 0; j <= rows; j++) {
+      ctx.beginPath(); ctx.moveTo(cx-4, j*ch); ctx.lineTo(cx+4, j*ch); ctx.stroke();
     }
   }
 
-  const saved = localStorage.getItem('theme');
-  if (saved) setTheme(saved);
-  else setTheme('dark');
-
-  btn.addEventListener('click', () => {
-    setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-  });
-
-  // ─── Navbar scroll state ───
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-  // ─── Mobile menu ───
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
-
-  // ─── Scroll reveal ───
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+  function drawWaveform(yBase, amplitude, freq, phase, color, lineW, opacity, waveType) {
+    ctx.beginPath();
+    ctx.lineWidth = lineW;
+    const step = 2;
+    for (let x = 0; x <= W; x += step) {
+      const ratio = x / W;
+      let y;
+      if (waveType === 'sine') {
+        y = yBase + Math.sin(ratio * Math.PI * 2 * freq + phase) * amplitude
+              + Math.sin(ratio * Math.PI * 2 * freq * 2.3 + phase * 1.3) * amplitude * 0.18;
+      } else if (waveType === 'square') {
+        const raw = Math.sin(ratio * Math.PI * 2 * freq + phase);
+        y = yBase + (raw > 0 ? 1 : -1) * amplitude * 0.75;
+      } else if (waveType === 'noise') {
+        y = yBase + Math.sin(ratio * Math.PI * 2 * freq + phase) * amplitude * 0.5
+              + Math.sin(ratio * Math.PI * 2 * freq * 3.7 + phase * 2.1) * amplitude * 0.3
+              + Math.sin(ratio * Math.PI * 2 * freq * 7.3 + phase * 0.7) * amplitude * 0.15;
       }
+      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color.replace('OPACITY', opacity);
+    ctx.shadowColor = color.replace('OPACITY', '0.6');
+    ctx.shadowBlur = lineW * 6;
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+
+  function spawnLine() {
+    if (activeLines.length >= (intensity === 2 ? 10 : 6)) return;
+    const text = termLines[Math.floor(Math.random() * termLines.length)];
+    const col = Math.random() > 0.5 ? 'warm' : 'cool';
+    activeLines.push({
+      text, col,
+      x: Math.random() * (W * 0.5) + (Math.random() > 0.5 ? W * 0.55 : W * 0.02),
+      y: Math.random() * (H * 0.7) + H * 0.1,
+      alpha: 0, life: 0, maxLife: 160 + Math.random() * 100,
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }
 
-  revealEls.forEach(el => observer.observe(el));
+  function drawTerminal() {
+    const light = isLight();
+    const warmBase = light ? '139,100,32' : '201,169,110';
+    const coolBase = light ? '41,128,168' : '100,181,214';
 
-  // ─── Hero reveal on load ───
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
-    }, 100);
-  });
+    ctx.font = '500 11px "JetBrains Mono", monospace';
+    activeLines = activeLines.filter(l => l.life < l.maxLife);
+    activeLines.forEach(l => {
+      l.life++;
+      const mid = l.maxLife / 2;
+      l.alpha = l.life < 20 ? l.life/20 : l.life > l.maxLife - 20 ? (l.maxLife - l.life)/20 : 1;
+      const base = l.col === 'warm' ? warmBase : coolBase;
+      const op = l.alpha * (intensity === 1 ? 0.22 : 0.32);
+      ctx.fillStyle = `rgba(${base},${op})`;
+      ctx.fillText(l.text, l.x, l.y);
+    });
+  }
+
+  function draw() {
+    if (intensity === 0) { ctx.clearRect(0, 0, W, H); return; }
+
+    // phosphor persistence — don't fully clear
+    const light = isLight();
+    ctx.fillStyle = light ? 'rgba(246,243,238,0.18)' : 'rgba(13,10,8,0.18)';
+    ctx.fillRect(0, 0, W, H);
+
+    const speed = intensity === 1 ? 0.012 : 0.022;
+    t += speed;
+
+    drawGrid();
+
+    const warmC = light ? 'rgba(139,100,32,OPACITY)' : 'rgba(201,169,110,OPACITY)';
+    const coolC = light ? 'rgba(41,128,168,OPACITY)' : 'rgba(100,181,214,OPACITY)';
+
+    if (intensity === 2) {
+      // channel 2 — square, faint cool
+      drawWaveform(H * 0.38, H * 0.075, 2.5, t * 0.7, coolC, 1.2, '0.18', 'square');
+      // channel 3 — noise, faint warm
+      drawWaveform(H * 0.72, H * 0.05, 4, t * 1.1, warmC, 1, '0.14', 'noise');
+    }
+    // main channel — sine, warm gold
+    drawWaveform(H * 0.55, H * 0.12, 2, t, warmC, intensity === 1 ? 1.5 : 1.8, intensity === 1 ? '0.5' : '0.65', 'sine');
+    // secondary — cool sine
+    drawWaveform(H * 0.45, H * 0.07, 3, t * 1.4 + 1, coolC, 1.2, intensity === 1 ? '0.25' : '0.35', 'sine');
+
+    // terminal text
+    lineTimer++;
+    if (lineTimer % (intensity === 1 ? 55 : 35) === 0) spawnLine();
+    drawTerminal();
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  function start() {
+    cancelAnimationFrame(animId);
+    resize();
+    // seed some lines
+    setTimeout(spawnLine, 400);
+    setTimeout(spawnLine, 900);
+    setTimeout(spawnLine, 1500);
+    draw();
+  }
+
+  window.addEventListener('resize', () => { resize(); });
+  start();
+
+  window._canvasCtrl = {
+    setIntensity: v => {
+      intensity = v; localStorage.setItem('kg-anim', v);
+      cancelAnimationFrame(animId);
+      if (v === 0) { ctx.clearRect(0, 0, W, H); } else { draw(); }
+    },
+    setCount: v => {}, // no-op for this mode
+  };
+})();
+
 </script>
 </body>
 </html>
