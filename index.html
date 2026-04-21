@@ -70,7 +70,7 @@
       color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem;
       font-family: 'JetBrains Mono', monospace;
     }
-    .section-label::before { content: '//'; opacity: 0.5; }
+    .section-label::before { content: ''; display: none; }
     .section-label::after { content: ''; flex: 1; max-width: 2.5rem; height: 1px; background: var(--accent); opacity: 0.4; }
     .tag {
       display: inline-block; font-size: 0.69rem; font-weight: 500; letter-spacing: 0.04em;
@@ -166,13 +166,6 @@
     .hero-title .cool-word { color: var(--cool); font-style: italic; }
     .hero-sub { font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: var(--text-muted); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.75; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .hero-chip {
-      font-size: 0.72rem; font-weight: 500; font-family: 'JetBrains Mono', monospace;
-      padding: 0.28rem 0.7rem; border-radius: 100px;
-      background: var(--bg-3); border: 1px solid var(--border); color: var(--text-muted);
-    }
-    .hero-chip.lit { border-color: var(--cool-glow); color: var(--cool); background: var(--cool-dim); }
     .scroll-cue {
       position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
@@ -218,7 +211,7 @@
     }
     details[open] .chevron { transform: rotate(180deg); }
     .edu-detail { margin-top: 0.85rem; font-size: 0.83rem; color: var(--text-muted); line-height: 1.72; }
-    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; align-items: start; }
 
     /* ── PROJECTS ── */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.1rem; }
@@ -229,7 +222,6 @@
       opacity: 0; transition: opacity var(--t); pointer-events: none;
     }
     .proj-card:hover::after { opacity: 1; }
-    .proj-num { font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); margin-bottom: 1rem; letter-spacing: 0.1em; }
     .proj-title { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
     .proj-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
@@ -292,23 +284,6 @@
       background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);
     }
 
-    /* ── AI STRIPE ── */
-    .ai-stripe {
-      background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 1.25rem 0; overflow: hidden; position: relative;
-    }
-    .ai-stripe-track {
-      display: flex; gap: 2rem; width: max-content;
-      animation: marquee 28s linear infinite;
-    }
-    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-    .ai-stripe-item { font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); white-space: nowrap; display: flex; align-items: center; gap: 0.5rem; }
-    .ai-stripe-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
-    .ai-stripe-fade-l, .ai-stripe-fade-r {
-      position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
-    }
-    .ai-stripe-fade-l { left: 0; background: linear-gradient(to right, var(--bg-2), transparent); }
-    .ai-stripe-fade-r { right: 0; background: linear-gradient(to left, var(--bg-2), transparent); }
 
     /* ── CONTACT ── */
     #contact { background: var(--bg-2); }
@@ -364,6 +339,7 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#about">About</a>
+      <a href="#why-me">Why Me</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
@@ -391,7 +367,7 @@
   <div class="container hero-inner">
     <div class="hero-status reveal">
       <div class="status-dot"></div>
-      <span class="status-text">open_to_work — Hamburg, Germany</span>
+      <span class="status-text">Seeking Werkstudent &amp; Pflichtpraktikum · Based in Hamburg · Open to relocate</span>
     </div>
     <h1 class="hero-title reveal reveal-delay-1">
       Hi, I'm<br/>
@@ -412,16 +388,6 @@
         Download CV
       </a>
     </div>
-    <div class="hero-chips reveal reveal-delay-4">
-      <span class="hero-chip">Python</span>
-      <span class="hero-chip">SQL</span>
-      <span class="hero-chip lit">AI / ML</span>
-      <span class="hero-chip lit">LLM Workflows</span>
-      <span class="hero-chip">ERP Systems</span>
-      <span class="hero-chip">Embedded C</span>
-      <span class="hero-chip lit">n8n Automation</span>
-      <span class="hero-chip">German B2+</span>
-    </div>
   </div>
   <div class="scroll-cue">
     <div class="scroll-line"></div>
@@ -429,36 +395,14 @@
   </div>
 </section>
 
-<!-- AI TICKER STRIPE -->
-<div class="ai-stripe">
-  <div class="ai-stripe-fade-l"></div>
-  <div class="ai-stripe-fade-r"></div>
-  <div class="ai-stripe-track">
-    <span class="ai-stripe-item"><span class="dot"></span>Large Language Models</span>
-    <span class="ai-stripe-item"><span class="dot"></span>AI Workflow Automation</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Python Data Pipelines</span>
-    <span class="ai-stripe-item"><span class="dot"></span>ERP Integration</span>
-    <span class="ai-stripe-item"><span class="dot"></span>n8n · Claude AI · OpenAI APIs</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Signal Processing</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Embedded Systems</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Digitalization</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Large Language Models</span>
-    <span class="ai-stripe-item"><span class="dot"></span>AI Workflow Automation</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Python Data Pipelines</span>
-    <span class="ai-stripe-item"><span class="dot"></span>ERP Integration</span>
-    <span class="ai-stripe-item"><span class="dot"></span>n8n · Claude AI · OpenAI APIs</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Signal Processing</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Embedded Systems</span>
-    <span class="ai-stripe-item"><span class="dot"></span>Digitalization</span>
-  </div>
-</div>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="section">
   <div class="container">
+
     <p class="section-label reveal">Work Experience</p>
     <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">Where I've made<br/><em>an impact</em></h2>
-    <div class="timeline">
+    <div class="timeline" style="margin-bottom:4rem;">
 
       <div class="tl-item reveal">
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
@@ -469,31 +413,15 @@
             <span class="tl-period">May 2024 – Feb 2026</span>
           </div>
           <ul class="tl-list">
-            <li>Handled 30–50 customer enquiries weekly across social channels, maintaining quality at volume.</li>
-            <li>Established and moderated online communities; drafted internal communication frameworks.</li>
-            <li>Represented Coracle at job fairs, nurturing business partnerships.</li>
-            <li>Navigated company through M&A transition — managing team dynamics during acquisition.</li>
+            <li>Learned quickly what good communication under pressure actually looks like — high volume, public channels, no room for a bad reply.</li>
+            <li>Built and ran online communities from the ground up; wrote the internal guidelines that kept them consistent as they grew.</li>
+            <li>Attended job fairs and trade events on behalf of the company — comfortable representing an employer in public.</li>
+            <li>Kept customer communication running smoothly through a full company acquisition. Ambiguity from above, normal work below.</li>
           </ul>
         </div>
       </div>
 
       <div class="tl-item reveal reveal-delay-1">
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
-        <div class="tl-body">
-          <div class="tl-role">OE Tutor — Orientation Week</div>
-          <div class="tl-meta">
-            <span class="tl-company">HAW Hamburg</span>
-            <span class="tl-period">Recurring, multiple semesters</span>
-          </div>
-          <ul class="tl-list">
-            <li>Hosted orientation sessions for incoming international students from 50+ countries.</li>
-            <li>Organized semester-long community events and integration activities.</li>
-            <li>Served as bureaucratic support contact — navigating German university systems for newcomers.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="tl-item reveal reveal-delay-2">
         <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
         <div class="tl-body">
           <div class="tl-role">ERP &amp; Mobile App Development Intern</div>
@@ -502,24 +430,48 @@
             <span class="tl-period">3.5 months</span>
           </div>
           <ul class="tl-list">
-            <li>Designed and implemented ERP software modules tailored to client business processes.</li>
-            <li>Contributed to mobile app development from requirement gathering to feature release.</li>
-            <li>Hands-on experience with enterprise software delivery cycles.</li>
+            <li>Built real ERP modules for real clients — requirements, implementation, testing, delivery, in 3.5 months.</li>
+            <li>Contributed to a mobile app alongside the dev team, picking up the full cycle from spec to working feature.</li>
+            <li>First time writing code that runs on someone else's machine in production. It raised the bar for how seriously I take software.</li>
           </ul>
         </div>
       </div>
 
-      <div class="tl-item reveal reveal-delay-3">
+
+    </div>
+
+    <p class="section-label reveal">Voluntary Experience</p>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">What I do<br/><em>because I want to</em></h2>
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-role">OE Tutor — Orientation Week</div>
+          <div class="tl-meta">
+            <span class="tl-company">HAW Hamburg</span>
+            <span class="tl-period">Recurring, multiple semesters</span>
+          </div>
+          <ul class="tl-list">
+            <li>Led week-long orientation programmes each semester for cohorts of international students — often 100+ people from 50+ countries at once.</li>
+            <li>Planned events across the full semester to help people actually feel at home, not just arrive and be forgotten.</li>
+            <li>Became the unofficial go-to for anyone lost in German bureaucracy: registration offices, health insurance, university processes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal reveal-delay-1">
         <div class="tl-line"><div class="tl-dot"></div></div>
         <div class="tl-body">
-          <div class="tl-role">Bar Operations &amp; Dorm Council (Heimrat)</div>
+          <div class="tl-role">Heimrat — Dorm Council Representative</div>
           <div class="tl-meta">
             <span class="tl-company">Student Residence, Hamburg</span>
             <span class="tl-period">Ongoing</span>
           </div>
           <ul class="tl-list">
-            <li>Managed bar team operations — stock, rotas, and event service delivery.</li>
-            <li>Served as Heimrat representative, voicing resident interests and organizing community events.</li>
+            <li>Elected by residents to represent the dorm in front of the Studierendenwerk Hamburg (StuWH) — the official voice between residents and the organisation managing the building.</li>
+            <li>Raise resident concerns at formal meetings, push for changes, and make sure things don't just get ignored at the top.</li>
+            <li>Organise community events and keep the social side of dorm life running.</li>
           </ul>
         </div>
       </div>
@@ -619,7 +571,6 @@
     <div class="projects-grid">
 
       <div class="card proj-card reveal">
-        <div class="proj-num">01 / PROJECT</div>
         <div class="proj-title">Jobscraper / Job Tracker</div>
         <div class="proj-desc">Python automation that reads a curated Excel list of companies, scrapes career pages for open roles, and tracks application status — so you spend time applying, not searching.</div>
         <div class="proj-tags">
@@ -632,7 +583,6 @@
       </div>
 
       <div class="card proj-card reveal reveal-delay-1">
-        <div class="proj-num">02 / PROJECT</div>
         <div class="proj-title">RSA Implementation</div>
         <div class="proj-desc">Cryptography project: RSA from first principles. Prime generation, Euler's totient, modular inverse, key construction, encrypt/decrypt — zero crypto library shortcuts.</div>
         <div class="proj-tags">
@@ -644,14 +594,12 @@
       </div>
 
       <div class="card proj-card placeholder-card reveal reveal-delay-2">
-        <div class="proj-num">03 / COMING SOON</div>
         <div class="proj-title">AI Workflow Project</div>
         <div class="proj-desc">Something in the AI/automation space — combining LLM tooling with practical data pipelines. Follow GitHub for updates.</div>
         <div class="proj-tags"><span class="tag cool">TBD</span></div>
       </div>
 
       <div class="card proj-card placeholder-card reveal reveal-delay-3">
-        <div class="proj-num">04 / COMING SOON</div>
         <div class="proj-title">More in Pipeline</div>
         <div class="proj-desc">Another project building up. Check the GitHub profile for what's active.</div>
         <div class="proj-tags"><span class="tag cool">TBD</span></div>
@@ -757,7 +705,7 @@
           I'm Kushagr — from New Delhi, now based in Hamburg studying Information Engineering at HAW Hamburg. I like building things: Python scripts, AI automation workflows, ERP modules, community structures.
         </p>
         <p style="margin-bottom:1rem;font-size:0.94rem;">
-          The thread connecting all of it is figuring out how technology — especially intelligent systems — can actually make things work better for people. I'm actively seeking Werkstudent or internship roles in AI/ML, software development, or digitalization.
+          The thread connecting all of it is figuring out how technology — especially intelligent systems — can actually make things work better for people. I'm actively seeking Werkstudent and Pflichtpraktikum roles in software development, AI/ML, ERP, or digitalization.
         </p>
         <p style="font-size:0.94rem;">
           Outside the terminal: obsessive Formula One follower, advocate for air fryers as peak kitchen technology, and I'll happily talk aviation digitalization longer than is socially acceptable.
@@ -774,6 +722,43 @@
   </div>
 </section>
 
+<!-- WHY ME -->
+<section id="why-me" class="section">
+  <div class="container">
+    <p class="section-label reveal">Why Me</p>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:2.5rem;">The case for<br/><em>hiring me</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem;">
+
+      <div class="card reveal">
+        <div style="font-size:1.4rem;margin-bottom:0.85rem;">🔩</div>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">I build things that actually work</div>
+        <p style="font-size:0.84rem;line-height:1.7;">Not just coursework. I built a job scraper because I needed one. I've shipped ERP modules for real clients. I'm comfortable writing code that runs on someone else's machine in production.</p>
+      </div>
+
+      <div class="card reveal reveal-delay-1">
+        <div style="font-size:1.4rem;margin-bottom:0.85rem;">🇩🇪</div>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">I know how Germany works</div>
+        <p style="font-size:0.84rem;line-height:1.7;">German B2+, improving. I've navigated visa offices, health insurance bureaucracy, and professional communication in German. Based in Hamburg — no relocation, no ramp-up time on the culture.</p>
+      </div>
+
+      <div class="card reveal reveal-delay-2">
+        <div style="font-size:1.4rem;margin-bottom:0.85rem;">📐</div>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Broad technical foundation</div>
+        <p style="font-size:0.84rem;line-height:1.7;">Six semesters covering cryptography, embedded systems, databases, signal processing, software engineering, and operating systems. I understand how layers of a stack connect — not just my corner of it.</p>
+      </div>
+
+      <div class="card reveal reveal-delay-3">
+        <div style="font-size:1.4rem;margin-bottom:0.85rem;">🤝</div>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">People skills that actually transfer</div>
+        <p style="font-size:0.84rem;line-height:1.7;">I've run communities, represented employers publicly, supported 100+ students navigating a foreign country, and stayed calm through a company acquisition. Engineering with real people in the room, not just in a ticket system.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- CONTACT -->
 <section id="contact" class="section">
   <div class="container">
@@ -781,7 +766,7 @@
       <p class="section-label" style="justify-content:center;">Get In Touch</p>
       <h2 style="margin-bottom:0.75rem;">Let's <em>talk</em></h2>
       <p style="margin-bottom:0.5rem;">
-        Actively looking for Werkstudent or internship positions in AI/ML, software development, ERP, or digitalization. If something above caught your eye — reach out.
+        Actively looking for Werkstudent and Pflichtpraktikum positions in software development, AI/ML, ERP, or digitalization. If something above caught your eye — reach out.
       </p>
       <a href="mailto:kushagr.kg@gmail.com" class="contact-email">kushagr.kg@gmail.com</a>
       <div class="contact-links">
