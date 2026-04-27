@@ -343,7 +343,7 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
-      <a href="javascript:void(0)" class="btn btn-primary" style="font-size:0.78rem;padding:0.52rem 1.05rem;" onclick="alert('CV coming soon!')">Download CV</a>
+      <a href="cv-kushagr-gupta.pdf" download class="btn btn-primary" style="font-size:0.78rem;padding:0.52rem 1.05rem;">Download CV</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -383,7 +383,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         See My Work
       </a>
-      <a href="#" class="btn btn-outline" onclick="alert('CV coming soon!');return false;">
+      <a href="cv-kushagr-gupta.pdf" download class="btn btn-outline">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download CV
       </a>
@@ -427,7 +427,6 @@
           <div class="tl-role">ERP &amp; Mobile App Development Intern</div>
           <div class="tl-meta">
             <span class="tl-company">ABC Info Soft Pvt. Ltd., India</span>
-            <span class="tl-period">3.5 months</span>
           </div>
           <ul class="tl-list">
             <li>Built real ERP modules for real clients — requirements, implementation, testing, delivery, in 3.5 months.</li>
@@ -571,6 +570,32 @@
     <div class="projects-grid">
 
       <div class="card proj-card reveal">
+        <div class="proj-title">PlantCare — AI Plant Care App</div>
+        <div class="proj-desc">Flutter mobile app with Gemini 2.0 Flash for instant plant identification, AI-generated 4-week care schedules, and health diagnosis via image analysis. RPG-style gamification with XP, streaks, and 8+ achievement badges.</div>
+        <div class="proj-tags">
+          <span class="tag cool">Flutter</span>
+          <span class="tag cool">Gemini AI</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Riverpod</span>
+          <span class="tag">Mobile</span>
+        </div>
+        <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
+      </div>
+
+      <div class="card proj-card reveal reveal-delay-1">
+        <div class="proj-title">ERP Data Analyst Agent</div>
+        <div class="proj-desc">Streamlit app that converts natural language questions into SQL using GPT-4o. Non-technical users query complex ERP databases without SQL knowledge — results auto-visualised and explained. Read-only safety validation prevents injection.</div>
+        <div class="proj-tags">
+          <span class="tag cool">LangChain</span>
+          <span class="tag cool">GPT-4o</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Python</span>
+        </div>
+        <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
+      </div>
+
+      <div class="card proj-card reveal reveal-delay-2">
         <div class="proj-title">Jobscraper / Job Tracker</div>
         <div class="proj-desc">Python automation that reads a curated Excel list of companies, scrapes career pages for open roles, and tracks application status — so you spend time applying, not searching.</div>
         <div class="proj-tags">
@@ -582,9 +607,9 @@
         <a href="https://github.com/kushagr2602/jobscraper" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
       </div>
 
-      <div class="card proj-card reveal reveal-delay-1">
+      <div class="card proj-card reveal reveal-delay-3">
         <div class="proj-title">RSA Implementation</div>
-        <div class="proj-desc">Cryptography project: RSA from first principles. Prime generation, Euler's totient, modular inverse, key construction, encrypt/decrypt — zero crypto library shortcuts.</div>
+        <div class="proj-desc">RSA from first principles — prime generation, Euler's totient, modular inverse, key construction, encrypt/decrypt. Zero crypto library shortcuts.</div>
         <div class="proj-tags">
           <span class="tag">Python</span>
           <span class="tag">Cryptography</span>
@@ -593,17 +618,15 @@
         <span class="proj-link" style="color:var(--text-muted);cursor:default;font-size:0.77rem;">University coursework</span>
       </div>
 
-      <div class="card proj-card placeholder-card reveal reveal-delay-2">
-        <div class="proj-title">AI Workflow Project</div>
-        <div class="proj-desc">Something in the AI/automation space — combining LLM tooling with practical data pipelines. Follow GitHub for updates.</div>
-        <div class="proj-tags"><span class="tag cool">TBD</span></div>
-      </div>
-
-      <div class="card proj-card placeholder-card reveal reveal-delay-3">
-        <div class="proj-title">More in Pipeline</div>
-        <div class="proj-desc">Another project building up. Check the GitHub profile for what's active.</div>
-        <div class="proj-tags"><span class="tag cool">TBD</span></div>
-        <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="proj-link">GitHub Profile →</a>
+      <div class="card proj-card placeholder-card reveal">
+        <div class="proj-title">Cal Tracker <span style="font-size:0.7rem;font-family:'JetBrains Mono',monospace;color:var(--cool);font-weight:400;">in dev</span></div>
+        <div class="proj-desc">Cross-platform calorie and nutrition tracking app in development. Firebase Auth, Cloud Firestore for real-time sync, Riverpod state management, and personal health analytics.</div>
+        <div class="proj-tags">
+          <span class="tag cool">Flutter</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Riverpod</span>
+          <span class="tag">iOS / Android</span>
+        </div>
       </div>
 
     </div>
@@ -694,10 +717,7 @@
     <p class="section-label reveal">About Me</p>
     <div class="about-grid">
       <div class="photo-frame reveal">
-        <div class="photo-placeholder">
-          <div class="photo-initials">KG</div>
-          <div class="photo-label">Photo coming soon<br/>kushagr@hamburg</div>
-        </div>
+        <img src="photo.jpg" alt="Kushagr Gupta" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
       </div>
       <div class="reveal reveal-delay-1">
         <h2 style="margin-bottom:1.25rem;">Technical depth,<br/><em>people-first mindset.</em></h2>
@@ -730,15 +750,15 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.1rem;">
 
       <div class="card reveal">
-        <div style="font-size:1.4rem;margin-bottom:0.85rem;">🔩</div>
-        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">I build things that actually work</div>
-        <p style="font-size:0.84rem;line-height:1.7;">Not just coursework. I built a job scraper because I needed one. I've shipped ERP modules for real clients. I'm comfortable writing code that runs on someone else's machine in production.</p>
+        <div style="font-size:1.4rem;margin-bottom:0.85rem;">😊</div>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Easy to work with, always learning</div>
+        <p style="font-size:0.84rem;line-height:1.7;">I ask questions when something is unclear, own my mistakes, and get genuinely excited about picking up new things. I don't need hand-holding but I'm not too proud to ask for help. Teams tend to find me straightforward to work with.</p>
       </div>
 
       <div class="card reveal reveal-delay-1">
         <div style="font-size:1.4rem;margin-bottom:0.85rem;">🇩🇪</div>
-        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">I know how Germany works</div>
-        <p style="font-size:0.84rem;line-height:1.7;">German B2+, improving. I've navigated visa offices, health insurance bureaucracy, and professional communication in German. Based in Hamburg — no relocation, no ramp-up time on the culture.</p>
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">Already at home here</div>
+        <p style="font-size:0.84rem;line-height:1.7;">I've lived and studied in Germany for years. My German is B2+ and growing — I use it at university, in the workplace, and when dealing with Behörden. No settling-in period, no culture shock. I understand how things work here.</p>
       </div>
 
       <div class="card reveal reveal-delay-2">
