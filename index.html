@@ -570,6 +570,21 @@
     <div class="projects-grid">
 
       <div class="card proj-card reveal">
+        <div class="proj-title">ERP Data Analyst Agent</div>
+        <div class="proj-desc">Streamlit app that converts natural language questions into SQL using GPT-4o. Schema retrieval (RAG) embeds every table, ranks them against the question by cosine similarity, then expands along foreign keys so the model keeps the tables it needs to JOIN. Read-only validation blocks every write verb; results are auto-visualised and explained.</div>
+        <div class="proj-tags">
+          <span class="tag cool">RAG</span>
+          <span class="tag cool">LangChain</span>
+          <span class="tag cool">GPT-4o</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Python</span>
+        </div>
+        <a href="https://erpanalyst.streamlit.app/" target="_blank" rel="noopener" class="proj-link">Live demo →</a>
+        <a href="https://github.com/kushagr2602/ERP-analyst" target="_blank" rel="noopener" class="proj-link" style="margin-left:1.1rem;">GitHub →</a>
+      </div>
+
+      <div class="card proj-card reveal reveal-delay-1">
         <div class="proj-title">Polymarket Signal Analyser</div>
         <div class="proj-desc">An agentic pipeline that reads Polymarket prediction markets for equity signals: an LLM scores each market's relevance to a configurable stock watchlist, a tool-calling agent answers questions over the data, and the same tools are exposed through an MCP server. Built for the Google × Kaggle AI Agents capstone — with a pre-LLM guardrail and a 14-case eval harness.</div>
         <div class="proj-tags">
@@ -584,7 +599,21 @@
         <a href="https://github.com/kushagr2602/polymarket-signal-analyser" target="_blank" rel="noopener" class="proj-link" style="margin-left:1.1rem;">GitHub →</a>
       </div>
 
-      <div class="card proj-card reveal reveal-delay-1">
+      <div class="card proj-card reveal reveal-delay-2">
+        <div class="proj-title">Semiconductor Validation Agent</div>
+        <div class="proj-desc">GenAI tooling over a Postgres chip-validation database: turns written requirements into structured test plans, answers questions about test results in natural language, and generates reports with a mermaid requirement-traceability chain. LLM-written SQL passes a keyword allow-list and an EXPLAIN dry-run before it reaches the data. Same agents exposed three ways - CLI, MCP server, and a web UI.</div>
+        <div class="proj-tags">
+          <span class="tag cool">MCP</span>
+          <span class="tag cool">OpenAI</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span>
+        </div>
+        <a href="https://nxp-validation-agent.onrender.com/" target="_blank" rel="noopener" class="proj-link">Live demo →</a>
+        <a href="https://github.com/kushagr2602/semiconductor-validation-agent" target="_blank" rel="noopener" class="proj-link" style="margin-left:1.1rem;">GitHub →</a>
+      </div>
+
+      <div class="card proj-card reveal reveal-delay-3">
         <div class="proj-title">PlantCare - AI Plant Care App</div>
         <div class="proj-desc">Flutter mobile app with Gemini 2.0 Flash for instant plant identification, AI-generated 4-week care schedules, and health diagnosis via image analysis. RPG-style gamification with XP, streaks, and 8+ achievement badges.</div>
         <div class="proj-tags">
@@ -597,34 +626,7 @@
         <a href="https://github.com/kushagr2602/plant_care" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
       </div>
 
-      <div class="card proj-card reveal reveal-delay-1">
-        <div class="proj-title">ERP Data Analyst Agent</div>
-        <div class="proj-desc">Streamlit app that converts natural language questions into SQL using GPT-4o. Schema retrieval (RAG) embeds every table, ranks them against the question by cosine similarity, then expands along foreign keys so the model keeps the tables it needs to JOIN. Read-only validation blocks every write verb; results are auto-visualised and explained.</div>
-        <div class="proj-tags">
-          <span class="tag cool">RAG</span>
-          <span class="tag cool">LangChain</span>
-          <span class="tag cool">GPT-4o</span>
-          <span class="tag">Streamlit</span>
-          <span class="tag">SQLAlchemy</span>
-          <span class="tag">Python</span>
-        </div>
-        <a href="https://github.com/kushagr2602/ERP-analyst" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
-      </div>
-
-      <div class="card proj-card reveal reveal-delay-2">
-        <div class="proj-title">Semiconductor Validation Agent</div>
-        <div class="proj-desc">GenAI tooling over a Postgres chip-validation database: turns written requirements into structured test plans, answers questions about test results in natural language, and generates reports with a mermaid requirement-traceability chain. LLM-written SQL passes a keyword allow-list and an EXPLAIN dry-run before it reaches the data. Same agents exposed three ways - CLI, MCP server, and a web UI.</div>
-        <div class="proj-tags">
-          <span class="tag cool">MCP</span>
-          <span class="tag cool">OpenAI</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Python</span>
-        </div>
-        <a href="https://github.com/kushagr2602/semiconductor-validation-agent" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
-      </div>
-
-      <div class="card proj-card reveal reveal-delay-3">
+      <div class="card proj-card reveal">
         <div class="proj-title">Skin Tracker</div>
         <div class="proj-desc">Next.js web app for logging and tracking a skincare routine over time, with Supabase auth and Postgres behind it. Deployed on Vercel.</div>
         <div class="proj-tags">
