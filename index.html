@@ -594,20 +594,47 @@
           <span class="tag">Riverpod</span>
           <span class="tag">Mobile</span>
         </div>
-        <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
+        <a href="https://github.com/kushagr2602/plant_care" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
       </div>
 
       <div class="card proj-card reveal reveal-delay-1">
         <div class="proj-title">ERP Data Analyst Agent</div>
-        <div class="proj-desc">Streamlit app that converts natural language questions into SQL using GPT-4o. Non-technical users query complex ERP databases without SQL knowledge - results auto-visualised and explained. Read-only safety validation prevents injection.</div>
+        <div class="proj-desc">Streamlit app that converts natural language questions into SQL using GPT-4o. Schema retrieval (RAG) embeds every table, ranks them against the question by cosine similarity, then expands along foreign keys so the model keeps the tables it needs to JOIN. Read-only validation blocks every write verb; results are auto-visualised and explained.</div>
         <div class="proj-tags">
+          <span class="tag cool">RAG</span>
           <span class="tag cool">LangChain</span>
           <span class="tag cool">GPT-4o</span>
           <span class="tag">Streamlit</span>
           <span class="tag">SQLAlchemy</span>
           <span class="tag">Python</span>
         </div>
-        <a href="https://github.com/kushagr2602" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
+        <a href="https://github.com/kushagr2602/ERP-analyst" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
+      </div>
+
+      <div class="card proj-card reveal reveal-delay-2">
+        <div class="proj-title">Semiconductor Validation Agent</div>
+        <div class="proj-desc">GenAI tooling over a Postgres chip-validation database: turns written requirements into structured test plans, answers questions about test results in natural language, and generates reports with a mermaid requirement-traceability chain. LLM-written SQL passes a keyword allow-list and an EXPLAIN dry-run before it reaches the data. Same agents exposed three ways - CLI, MCP server, and a web UI.</div>
+        <div class="proj-tags">
+          <span class="tag cool">MCP</span>
+          <span class="tag cool">OpenAI</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span>
+        </div>
+        <a href="https://github.com/kushagr2602/semiconductor-validation-agent" target="_blank" rel="noopener" class="proj-link">View on GitHub →</a>
+      </div>
+
+      <div class="card proj-card reveal reveal-delay-3">
+        <div class="proj-title">Skin Tracker</div>
+        <div class="proj-desc">Next.js web app for logging and tracking a skincare routine over time, with Supabase auth and Postgres behind it. Deployed on Vercel.</div>
+        <div class="proj-tags">
+          <span class="tag cool">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Vercel</span>
+        </div>
+        <a href="https://skin-tracker-app.vercel.app" target="_blank" rel="noopener" class="proj-link">Live demo →</a>
+        <a href="https://github.com/kushagr2602/skin-tracker" target="_blank" rel="noopener" class="proj-link" style="margin-left:1.1rem;">GitHub →</a>
       </div>
 
       <div class="card proj-card reveal reveal-delay-2">
